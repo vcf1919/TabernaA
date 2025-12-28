@@ -1,0 +1,120 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import Button from "../components/ui/Button.astro";
+import { SITE_DATA } from "../data/tabernaAliaga";
+import { Wine, ChefHat, Users } from "lucide-react";
+---
+
+<MainLayout title="Catering y Eventos | Taberna Aliaga">
+  <div class="bg-primary text-white py-24 px-4 text-center">
+    <span
+      class="text-accent uppercase tracking-widest text-sm font-semibold mb-2 block"
+    >
+      Eventos Exclusivos
+    </span>
+    <h1 class="font-playfair text-5xl md:text-6xl mb-6">
+      Experiencias & Catering
+    </h1>
+    <p class="text-white/80 text-xl font-light max-w-2xl mx-auto">
+      Traslada la excelencia de nuestra cocina a tu evento. Corporativo,
+      celebraciones y momentos únicos.
+    </p>
+  </div>
+
+  <div class="max-w-6xl mx-auto px-4 py-20">
+    <div class="grid md:grid-cols-3 gap-8 mb-20">
+      <!-- Feature 1 -->
+      <div
+        class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 text-center"
+      >
+        <div
+          class="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center text-accent mx-auto mb-6"
+        >
+          <ChefHat className="w-8 h-8" />
+        </div>
+        <h3 class="font-playfair text-xl font-bold mb-3">
+          Cocina Personalizada
+        </h3>
+        <p class="text-gray-600">
+          Diseñamos menús a medida según el tipo de evento y temporada. Desde un
+          vino de honor hasta un banquete completo.
+        </p>
+      </div>
+
+      <!-- Feature 2 -->
+      <div
+        class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 text-center"
+      >
+        <div
+          class="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center text-accent mx-auto mb-6"
+        >
+          <Wine className="w-8 h-8" />
+        </div>
+        <h3 class="font-playfair text-xl font-bold mb-3">Catas y Maridajes</h3>
+        <p class="text-gray-600">
+          Organizamos experiencias gastronómicas guiadas con nuestra selección
+          de vinos y productos gourmet.
+        </p>
+      </div>
+
+      <!-- Feature 3 -->
+      <div
+        class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 text-center"
+      >
+        <div
+          class="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center text-accent mx-auto mb-6"
+        >
+          <Users className="w-8 h-8" />
+        </div>
+        <h3 class="font-playfair text-xl font-bold mb-3">
+          Eventos Corporativos
+        </h3>
+        <p class="text-gray-600">
+          Soluciones para empresas que buscan calidad y servicio profesional.
+        </p>
+      </div>
+    </div>
+
+    <!-- Social Proof -->
+    <div class="text-center mb-16 bg-gray-50 rounded-3xl p-12">
+      <h2 class="font-playfair text-3xl mb-8">Confían en Nosotros</h2>
+      <div
+        class="flex flex-wrap justify-center items-center gap-12 md:gap-20 opacity-60"
+      >
+        {
+          SITE_DATA.services.catering.clients.map((client) => (
+            <span class="text-2xl font-bold text-primary font-playfair">
+              {client}
+            </span>
+          ))
+        }
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="text-center">
+      <h2 class="font-playfair text-3xl mb-6">¿Hablamos de tu evento?</h2>
+      <p class="text-gray-600 max-w-lg mx-auto mb-8">
+        Cuéntanos qué necesitas y te prepararemos una propuesta sin compromiso.
+      </p>
+      <div class="flex flex-col md:flex-row gap-4 justify-center">
+        <Button
+          href={`https://wa.me/${SITE_DATA.contact.phoneMobile.replace(/\s+/g, "").replace("+", "")}?text=Hola!%20Me%20interesa%20informaci%C3%B3n%20sobre%20Catering`}
+          target="_blank"
+          rel="noopener noreferrer"
+          variant="primary"
+          size="lg"
+        >
+          Consultar por WhatsApp
+        </Button>
+        <Button
+          href={`mailto:${SITE_DATA.contact.email}`}
+          variant="outline"
+          size="lg"
+        >
+          Enviar Email
+        </Button>
+      </div>
+    </div>
+  </div>
+</MainLayout>

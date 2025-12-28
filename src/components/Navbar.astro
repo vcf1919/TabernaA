@@ -1,6 +1,6 @@
 ---
 import Button from "./ui/Button.astro";
-import { INFO } from "../data/info";
+import { SITE_DATA } from "../data/tabernaAliaga";
 ---
 
 <header
@@ -13,24 +13,28 @@ import { INFO } from "../data/info";
       href="/"
       class="text-2xl font-playfair font-bold text-primary tracking-tighter"
     >
-      Taberna Aliaga
+      {SITE_DATA.name}
     </a>
 
     <nav class="hidden md:flex items-center gap-8">
-      <a
-        href="/nosotros"
-        class="text-primary hover:text-accent transition-colors">Nosotros</a
-      >
       <a href="/carta" class="text-primary hover:text-accent transition-colors"
         >Carta</a
       >
       <a
-        href="/contacto"
-        class="text-primary hover:text-accent transition-colors">Contacto</a
+        href="/esmorzaret"
+        class="text-primary hover:text-accent transition-colors">Esmorzaret</a
+      >
+      <a
+        href="/delivery"
+        class="text-primary hover:text-accent transition-colors">Delivery</a
+      >
+      <a
+        href="/catering"
+        class="text-primary hover:text-accent transition-colors">Catering</a
       >
 
       <Button
-        href={`https://wa.me/${INFO.phones.whatsapp.replace(/\s+/g, "").replace("+", "")}?text=Hola!%20Me%20gustar%C3%ADa%20reservar%20una%20mesa%20en%20Taberna%20Aliaga`}
+        href={`https://wa.me/${SITE_DATA.contact.phoneMobile.replace(/\s+/g, "").replace("+", "")}?text=Hola!%20Me%20gustar%C3%ADa%20reservar%20una%20mesa%20en%20Taberna%20Aliaga`}
         target="_blank"
         rel="noopener noreferrer"
         variant="accent"

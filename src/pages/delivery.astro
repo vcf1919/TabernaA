@@ -1,0 +1,101 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import Button from "../components/ui/Button.astro";
+import { SITE_DATA } from "../data/tabernaAliaga";
+import { Phone, MapPin, BadgeEuro, Clock } from "lucide-react";
+---
+
+<MainLayout title="Delivery & Take Away | Taberna Aliaga en tu Casa">
+  <div class="bg-primary text-white py-24 px-4 text-center">
+    <span
+      class="text-accent uppercase tracking-widest text-sm font-semibold mb-2 block"
+    >
+      Servicio a Domicilio
+    </span>
+    <h1 class="font-playfair text-5xl md:text-6xl mb-6">
+      Taberna Aliaga en tu Casa
+    </h1>
+    <p class="text-white/80 text-xl font-light max-w-2xl mx-auto">
+      ¿Noche de sofá? Te llevamos nuestros clásicos. Hamburguesas Angus, tapas y
+      postres caseros.
+    </p>
+  </div>
+
+  <div class="max-w-4xl mx-auto px-4 py-16">
+    <div class="grid md:grid-cols-2 gap-12 items-center mb-16">
+      <div class="space-y-8">
+        <h2 class="font-playfair text-3xl text-primary">
+          Condiciones de Reparto
+        </h2>
+
+        <div class="space-y-6">
+          <div class="flex gap-4">
+            <div
+              class="w-10 h-10 bg-accent/10 rounded-full flex items-center justify-center text-accent flex-shrink-0"
+            >
+              <BadgeEuro className="w-5 h-5" />
+            </div>
+            <div>
+              <h3 class="font-bold text-lg text-primary">Pedido Mínimo</h3>
+              <p class="text-gray-600">
+                El pedido mínimo es de {SITE_DATA.services.delivery.minOrder}€.
+              </p>
+              <p class="text-gray-600 text-sm">
+                Gastos de envío: {SITE_DATA.services.delivery.shippingCost}€
+              </p>
+            </div>
+          </div>
+
+          <div class="flex gap-4">
+            <div
+              class="w-10 h-10 bg-accent/10 rounded-full flex items-center justify-center text-accent flex-shrink-0"
+            >
+              <MapPin className="w-5 h-5" />
+            </div>
+            <div>
+              <h3 class="font-bold text-lg text-primary">Zonas de Reparto</h3>
+              <p class="text-gray-600 leading-relaxed">
+                {SITE_DATA.services.delivery.zones.join(", ")}.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex gap-4">
+            <div
+              class="w-10 h-10 bg-accent/10 rounded-full flex items-center justify-center text-accent flex-shrink-0"
+            >
+              <Clock className="w-5 h-5" />
+            </div>
+            <div>
+              <h3 class="font-bold text-lg text-primary">Horario Delivery</h3>
+              <p class="text-gray-600">Viernes y Sábados noche.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="pt-4">
+          <Button
+            href={`tel:${SITE_DATA.services.delivery.phone.replace(/\s+/g, "")}`}
+            variant="primary"
+            size="lg"
+            class="w-full md:w-auto"
+          >
+            <Phone className="w-5 h-5 mr-2" />
+            Pedir por Teléfono: {SITE_DATA.services.delivery.phone}
+          </Button>
+          <p class="text-xs text-gray-500 mt-2 text-center md:text-left">
+            Pago en efectivo o tarjeta al recibir.
+          </p>
+        </div>
+      </div>
+
+      <div class="bg-gray-100 rounded-2xl overflow-hidden h-[400px]">
+        <img
+          src="https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?q=80&w=2071&auto=format&fit=crop"
+          alt="Hamburguesa Taberna Aliaga"
+          class="w-full h-full object-cover"
+        />
+      </div>
+    </div>
+  </div>
+</MainLayout>

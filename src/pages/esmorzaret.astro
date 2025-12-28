@@ -1,12 +1,18 @@
 ---
-import MainLayout from '../layouts/MainLayout.astro';
-import Button from '../components/ui/Button.astro';
-import { Coffee, Utensils, Beer } from 'lucide-react';
+import MainLayout from "../layouts/MainLayout.astro";
+import Button from "../components/ui/Button.astro";
+import { Coffee, Utensils, Beer } from "lucide-react";
 ---
 
-<MainLayout title="L'Esmorzaret | Taberna Aliaga" description="Disfruta del auténtico esmorzaret valenciano en Catarroja. Bocadillos, gasto y cremaet.">
+<MainLayout
+  title="L'Esmorzaret | Taberna Aliaga"
+  description="Disfruta del auténtico esmorzaret valenciano en Catarroja. Bocadillos, gasto y cremaet."
+>
   <div class="bg-primary pt-32 pb-16 px-4 md:px-8 text-center text-white">
-    <span class="text-accent font-bold tracking-wider uppercase text-sm mb-2 block">Tradición Valenciana</span>
+    <span
+      class="text-accent font-bold tracking-wider uppercase text-sm mb-2 block"
+      >Tradición Valenciana</span
+    >
     <h1 class="font-playfair text-5xl md:text-6xl mb-4">L'Esmorzaret</h1>
     <p class="text-white/80 max-w-2xl mx-auto text-lg font-light">
       De lunes a sábado, de 09:00 a 12:00. La hora sagrada.
@@ -14,83 +20,129 @@ import { Coffee, Utensils, Beer } from 'lucide-react';
   </div>
 
   <div class="max-w-4xl mx-auto px-4 py-16 space-y-16">
-    
     <!-- El Gasto Section -->
-    <section class="bg-base border border-gray-200 rounded-2xl p-8 md:p-12 text-center space-y-6">
-      <h2 class="font-playfair text-3xl font-bold text-primary">¿Qué incluye el Gasto?</h2>
+    <section
+      class="bg-base border border-gray-200 rounded-2xl p-8 md:p-12 text-center space-y-6"
+    >
+      <h2 class="font-playfair text-3xl font-bold text-primary">
+        ¿Qué incluye el Gasto?
+      </h2>
       <p class="text-gray-600 max-w-2xl mx-auto">
-        En Taberna Aliaga, el bocadillo nunca viene solo. El precio incluye la experiencia completa:
+        En Taberna Aliaga, el bocadillo nunca viene solo. El precio incluye la
+        experiencia completa:
       </p>
-      
+
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8 pt-6">
         <div class="flex flex-col items-center gap-3">
-          <div class="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center text-accent">
+          <div
+            class="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center text-accent"
+          >
             <Utensils className="w-6 h-6" />
           </div>
           <h3 class="font-bold text-lg text-primary">Cacau i Tramussos</h3>
-          <p class="text-sm text-gray-500">Cacahuetes del collaret y altramuces para abrir boca.</p>
-        </div>
-        
-        <div class="flex flex-col items-center gap-3">
-          <div class="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center text-accent">
-            <Beer className="w-6 h-6" />
-          </div>
-          <h3 class="font-bold text-lg text-primary">La Beguda</h3>
-          <p class="text-sm text-gray-500">Cerveza fresca, vino con gaseosa o refresco.</p>
+          <p class="text-sm text-gray-500">
+            Cacahuetes del collaret y altramuces para abrir boca.
+          </p>
         </div>
 
         <div class="flex flex-col items-center gap-3">
-          <div class="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center text-accent">
+          <div
+            class="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center text-accent"
+          >
+            <Beer className="w-6 h-6" />
+          </div>
+          <h3 class="font-bold text-lg text-primary">La Beguda</h3>
+          <p class="text-sm text-gray-500">
+            Cerveza fresca, vino con gaseosa o refresco.
+          </p>
+        </div>
+
+        <div class="flex flex-col items-center gap-3">
+          <div
+            class="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center text-accent"
+          >
             <Coffee className="w-6 h-6" />
           </div>
           <h3 class="font-bold text-lg text-primary">El Café</h3>
-          <p class="text-sm text-gray-500">O un buen Cremaet (+1.50€) para cerrar como toca.</p>
+          <p class="text-sm text-gray-500">
+            O un buen Cremaet (+1.50€) para cerrar como toca.
+          </p>
         </div>
       </div>
     </section>
 
     <!-- Bocadillos List -->
     <section class="space-y-8">
-      <h2 class="font-playfair text-3xl md:text-4xl text-primary border-b border-primary/10 pb-4">
+      <h2
+        class="font-playfair text-3xl md:text-4xl text-primary border-b border-primary/10 pb-4"
+      >
         Nuestros Bocadillos
       </h2>
-      <p class="text-gray-600 mb-8 italic">Todos disponibles en medio bocadillo o entero.</p>
+      <p class="text-gray-600 mb-8 italic">
+        Todos disponibles en medio bocadillo o entero.
+      </p>
 
       <div class="grid md:grid-cols-2 gap-8">
         <!-- Chivito -->
-        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 group hover:border-accent/30 transition-all">
+        <div
+          class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 group hover:border-accent/30 transition-all"
+        >
           <div class="flex justify-between items-start mb-2">
-            <h3 class="text-xl font-bold text-primary group-hover:text-accent transition-colors">Chivito</h3>
-            <span class="font-medium text-lg">7.50€</span>
+            <h3
+              class="text-xl font-bold text-primary group-hover:text-accent transition-colors"
+            >
+              Chivito
+            </h3>
           </div>
-          <p class="text-gray-600">Lomo, bacon, queso, huevo, lechuga, tomate y mayonesa.</p>
+          <p class="text-gray-600">
+            Lomo, bacon, queso, huevo, lechuga, tomate y mayonesa.
+          </p>
         </div>
 
         <!-- Brascada -->
-        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 group hover:border-accent/30 transition-all">
+        <div
+          class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 group hover:border-accent/30 transition-all"
+        >
           <div class="flex justify-between items-start mb-2">
-            <h3 class="text-xl font-bold text-primary group-hover:text-accent transition-colors">Brascada</h3>
-            <span class="font-medium text-lg">8.00€</span>
+            <h3
+              class="text-xl font-bold text-primary group-hover:text-accent transition-colors"
+            >
+              Brascada
+            </h3>
           </div>
           <p class="text-gray-600">Ternera, jamón serrano y cebolla pochada.</p>
         </div>
 
         <!-- Almussafes -->
-        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 group hover:border-accent/30 transition-all">
+        <div
+          class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 group hover:border-accent/30 transition-all"
+        >
           <div class="flex justify-between items-start mb-2">
-            <h3 class="text-xl font-bold text-primary group-hover:text-accent transition-colors">Almussafes</h3>
-            <span class="font-medium text-lg">7.00€</span>
+            <h3
+              class="text-xl font-bold text-primary group-hover:text-accent transition-colors"
+            >
+              Almussafes
+            </h3>
           </div>
-          <p class="text-gray-600">Sobrasada, queso fundido y cebolla pochada.</p>
+          <p class="text-gray-600">
+            Sobrasada, queso fundido y cebolla pochada.
+          </p>
         </div>
 
         <!-- Carne de Caballo -->
-        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 group hover:border-accent/30 transition-all">
+        <div
+          class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 group hover:border-accent/30 transition-all"
+        >
           <div class="flex justify-between items-start mb-2">
-            <h3 class="text-xl font-bold text-primary group-hover:text-accent transition-colors">Carne de Caballo</h3>
-            <span class="font-medium text-lg">8.50€</span>
+            <h3
+              class="text-xl font-bold text-primary group-hover:text-accent transition-colors"
+            >
+              Carne de Caballo
+            </h3>
           </div>
-          <p class="text-gray-600">Carne de caballo con ajos tiernos y patatas.</p>
+          <p class="text-gray-600">
+            Carne de caballo con ajos tiernos y patatas.
+          </p>
         </div>
       </div>
     </section>
@@ -98,16 +150,15 @@ import { Coffee, Utensils, Beer } from 'lucide-react';
     <!-- Call to Action -->
     <div class="text-center pt-8 border-t border-gray-200">
       <h3 class="font-playfair text-2xl mb-4">¿Te vienes a almorzar?</h3>
-      <Button 
-        href="https://wa.me/34722447769?text=Hola!%20Quiero%20reservar%20para%20el%20almuerzo" 
+      <Button
+        href="https://wa.me/34722447769?text=Hola!%20Quiero%20reservar%20para%20el%20almuerzo"
         target="_blank"
         rel="noopener noreferrer"
-        variant="primary" 
+        variant="primary"
         size="lg"
       >
         Reservar Mesa
       </Button>
     </div>
-
   </div>
 </MainLayout>

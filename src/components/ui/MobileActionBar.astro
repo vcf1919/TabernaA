@@ -1,25 +1,42 @@
 ---
-import { Phone, MessageCircle } from "lucide-react";
-import { INFO } from "../../data/info";
+import { Phone, MapPin, UtensilsCrossed, CalendarDays } from "lucide-react";
+import { SITE_DATA } from "../../data/tabernaAliaga";
 ---
 
 <div
-  class="fixed bottom-0 left-0 w-full z-50 bg-white border-t border-gray-200 md:hidden grid grid-cols-2 p-2 gap-2 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)]"
+  class="fixed bottom-0 left-0 w-full z-50 bg-white border-t border-gray-200 md:hidden grid grid-cols-3 p-2 gap-2 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)] pb-safe"
 >
   <a
-    href={`tel:${INFO.phones.landline.replace(/\s+/g, "")}`}
-    class="flex items-center justify-center gap-2 bg-primary text-white py-3 px-4 font-medium rounded-lg hover:bg-black transition-colors"
+    href="/carta"
+    class="flex flex-col items-center justify-center gap-1 text-primary py-2 px-1 text-xs font-medium hover:bg-gray-50 rounded-lg transition-colors"
   >
-    <Phone className="w-5 h-5" />
-    Llamar
+    <UtensilsCrossed className="w-5 h-5 opacity-70" />
+    Carta
   </a>
+
   <a
-    href={`https://wa.me/${INFO.phones.whatsapp.replace(/\s+/g, "").replace("+", "")}?text=Hola!%20Me%20gustar%C3%ADa%20reservar%20una%20mesa%20en%20Taberna%20Aliaga`}
+    href={`https://wa.me/${SITE_DATA.contact.phoneMobile.replace(/\s+/g, "").replace("+", "")}?text=Hola!%20Me%20gustar%C3%ADa%20reservar%20una%20mesa%20en%20Taberna%20Aliaga`}
     target="_blank"
     rel="noopener noreferrer"
-    class="flex items-center justify-center gap-2 bg-[#25D366] text-white py-3 px-4 font-medium rounded-lg hover:brightness-105 transition-colors"
+    class="flex flex-col items-center justify-center gap-1 bg-accent/10 text-accent py-2 px-1 text-xs font-bold rounded-lg hover:bg-accent/20 transition-colors"
   >
-    <MessageCircle className="w-5 h-5" />
+    <CalendarDays className="w-5 h-5" />
     Reservar
   </a>
+
+  <a
+    href={SITE_DATA.address.googleMapsUrl || "#"}
+    target="_blank"
+    rel="noopener noreferrer"
+    class="flex flex-col items-center justify-center gap-1 text-primary py-2 px-1 text-xs font-medium hover:bg-gray-50 rounded-lg transition-colors"
+  >
+    <MapPin className="w-5 h-5 opacity-70" />
+    Ubicación
+  </a>
 </div>
+
+<style>
+  .pb-safe {
+    padding-bottom: env(safe-area-inset-bottom, 0.5rem);
+  }
+</style>

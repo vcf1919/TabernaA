@@ -1,6 +1,6 @@
 ---
-import { MapPin, Phone, Clock, Instagram } from "lucide-react";
-import { INFO } from "../data/info";
+import { MapPin, Phone, Clock, Instagram, Facebook } from "lucide-react";
+import { SITE_DATA } from "../data/tabernaAliaga";
 ---
 
 <footer class="bg-primary text-base py-16">
@@ -9,14 +9,16 @@ import { INFO } from "../data/info";
   >
     <!-- Contact Info -->
     <div class="space-y-4">
-      <h3 class="font-playfair text-2xl font-bold text-accent">{INFO.name}</h3>
+      <h3 class="font-playfair text-2xl font-bold text-accent">
+        {SITE_DATA.name}
+      </h3>
       <div class="space-y-4 text-white/80">
         <p class="flex items-start gap-3">
           <MapPin className="w-5 h-5 text-accent mt-1 flex-shrink-0" />
           <span>
-            {INFO.address.street}<br />
-            {INFO.address.postalCode}
-            {INFO.address.city}, {INFO.address.region}
+            {SITE_DATA.address.street}<br />
+            {SITE_DATA.address.postalCode}
+            {SITE_DATA.address.city}, {SITE_DATA.address.province}
           </span>
         </p>
 
@@ -24,56 +26,56 @@ import { INFO } from "../data/info";
           <Phone className="w-5 h-5 text-accent mt-1 flex-shrink-0" />
           <div class="flex flex-col gap-1">
             <a
-              href={`https://wa.me/${INFO.phones.whatsapp.replace(/\s+/g, "").replace("+", "")}`}
+              href={`https://wa.me/${SITE_DATA.contact.phoneMobile.replace(/\s+/g, "").replace("+", "")}`}
               class="hover:text-accent transition-colors"
             >
-              WhatsApp: {INFO.phones.whatsapp}
+              Móvil/WhatsApp: {SITE_DATA.contact.phoneMobile}
             </a>
             <a
-              href={`tel:${INFO.phones.landline.replace(/\s+/g, "")}`}
+              href={`tel:${SITE_DATA.contact.phoneLandline.replace(/\s+/g, "")}`}
               class="hover:text-accent transition-colors"
             >
-              Fijo: {INFO.phones.landline}
+              Fijo: {SITE_DATA.contact.phoneLandline}
             </a>
           </div>
         </div>
 
-        <a
-          href={INFO.socials.instagram}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="flex items-center gap-3 hover:text-accent transition-colors w-fit"
-        >
-          <Instagram className="w-5 h-5 text-accent" />
-          <span>@tabernaliaga</span>
-        </a>
+        <div class="flex gap-4 pt-2">
+          <a
+            href={SITE_DATA.contact.instagram}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex items-center gap-2 hover:text-accent transition-colors"
+          >
+            <Instagram className="w-5 h-5 text-accent" />
+            <span>Instagram</span>
+          </a>
+        </div>
       </div>
     </div>
 
     <!-- Hours -->
     <div class="space-y-4">
       <h3 class="font-playfair text-xl text-white">Horario</h3>
-      <div class="space-y-4 text-white/80">
-        <div class="flex items-start gap-3">
-          <Clock className="w-5 h-5 text-accent mt-1 flex-shrink-0" />
-          <div class="space-y-2 text-sm">
-            <p>
-              <span class="text-white block font-semibold">Comidas:</span>
-              {INFO.hours.lunch}
-            </p>
-            <p>
-              <span class="text-white block font-semibold">Cenas:</span>
-              {INFO.hours.dinner}
-            </p>
-          </div>
-        </div>
+      <div class="space-y-2 text-white/80 text-sm">
+        {
+          SITE_DATA.openingHours.schedule.map((item) => (
+            <div class="flex justify-between border-b border-white/10 pb-1 last:border-0">
+              <span class="font-medium">{item.day}</span>
+              <span>{item.hours}</span>
+            </div>
+          ))
+        }
       </div>
+      <p class="text-xs text-accent/80 italic mt-2">
+        {SITE_DATA.openingHours.note}
+      </p>
     </div>
 
     <!-- Map -->
     <div class="h-48 bg-white/10 rounded-lg overflow-hidden relative">
       <iframe
-        src={`https://maps.google.com/maps?q=${INFO.geo.lat},${INFO.geo.lng}&hl=es&z=16&output=embed`}
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3081.714936274712!2d-0.4071886846356764!3d39.40354497949553!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd604e6c388277af%3A0xc476757d5983577d!2sCarrer%20M%C3%BAsic%20Filibert%20Rodrigo%2C%2019%2C%2046470%20Catarroja%2C%20Valencia!5e0!3m2!1ses!2ses!4v1703712345678!5m2!1ses!2ses"
         width="100%"
         height="100%"
         style="border:0;"
@@ -89,6 +91,6 @@ import { INFO } from "../data/info";
     class="max-w-7xl mx-auto px-4 md:px-8 mt-12 pt-8 border-t border-white/10 text-center text-white/40 text-sm"
   >
     &copy; {new Date().getFullYear()}
-    {INFO.name}. Todos los derechos reservados.
+    {SITE_DATA.name}. Todos los derechos reservados.
   </div>
 </footer>

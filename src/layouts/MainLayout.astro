@@ -1,30 +1,65 @@
 ---
-import '@fontsource/playfair-display';
-import '@fontsource/montserrat';
-import '../styles/global.css';
+import "@fontsource/playfair-display";
+import "@fontsource/montserrat";
+import "../styles/global.css";
 
-import Navbar from '../components/Navbar.astro';
-import Footer from '../components/Footer.astro';
-import SEO from '../components/SEO.astro';
-import MobileActionBar from '../components/ui/MobileActionBar.astro';
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+import SEO from "../components/SEO.astro";
+import MobileActionBar from "../components/ui/MobileActionBar.astro";
+import { SITE_DATA } from "../data/tabernaAliaga";
 
 interface Props {
-  title: string;
+  title?: string;
   description?: string;
 }
 
-const { 
-  title, 
-  description = "Taberna Aliaga - Restaurante en Catarroja donde el producto manda." 
+const {
+  title = `${SITE_DATA.name} | Cocina de Mercado en Catarroja`,
+  description = "Restaurante en Catarroja especializado en arroces melosos, marisco fresco y carnes maduradas. Ambiente acogedor y servicio premium. ¡Reserva online!",
 } = Astro.props;
+
+const schema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  name: SITE_DATA.name,
+  image: "https://tabernaaliaga.com/social-image.jpg", // Placeholder
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: SITE_DATA.address.street,
+    addressLocality: SITE_DATA.address.city,
+    addressRegion: SITE_DATA.address.province,
+    postalCode: SITE_DATA.address.postalCode,
+    addressCountry: "ES",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: 39.4035,
+    longitude: -0.405,
+  },
+  url: "https://tabernaaliaga.com", // Placeholder
+  telephone: SITE_DATA.contact.phoneMobile.replace(/\s+/g, ""),
+  servesCuisine: "Mediterránea, Española, Arroces",
+  priceRange: "$$-$$$",
+  openingHoursSpecification: SITE_DATA.openingHours.structured,
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue: SITE_DATA.reviews.rating.toString(),
+    reviewCount: SITE_DATA.reviews.count.toString(),
+  },
+  sameAs: [SITE_DATA.contact.instagram],
+});
 ---
 
 <!doctype html>
 <html lang="es">
   <head>
     <SEO title={title} description={description} />
+    <script type="application/ld+json" set:html={schema} />
   </head>
-  <body class="bg-base text-primary font-body antialiased selection:bg-accent/30 selection:text-primary">
+  <body
+    class="bg-base text-primary font-body antialiased selection:bg-accent/30 selection:text-primary"
+  >
     <Navbar />
     <main class="min-h-screen">
       <slot />

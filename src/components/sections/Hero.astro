@@ -15,7 +15,7 @@ import Button from "../ui/Button.astro";
       muted
       loop
       playsinline
-      poster="/images/hero-bg.png"
+      poster="/images/taberna-aliaga.jpg"
     >
       <source
         src="https://cdn.coverr.co/videos/share/63346b08-6627-4c3d-88b9-46e33833b708/1080p.mp4"
@@ -23,7 +23,7 @@ import Button from "../ui/Button.astro";
       />
       <!-- Fallback image -->
       <img
-        src="/images/hero-bg.png"
+        src="/images/taberna-aliaga.jpg"
         alt="Interior cálido de Taberna Aliaga"
         class="w-full h-full object-cover"
       />
@@ -33,21 +33,29 @@ import Button from "../ui/Button.astro";
   <div
     class="relative z-20 text-center max-w-4xl px-4 space-y-8 animate-fade-in-up"
   >
+    <div
+      class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-sm font-medium text-white/90 mb-4"
+    >
+      <span>⭐ 4.4/5 en Tripadvisor</span>
+      <span class="w-1 h-1 rounded-full bg-white/50"></span>
+      <span>Abierto Noches Viernes y Sábado</span>
+    </div>
+
     <h1 class="font-playfair text-5xl md:text-7xl lg:text-8xl leading-tight">
       Taberna Aliaga
       <span
         class="block text-2xl md:text-4xl mt-4 font-normal text-white/90 font-montserrat tracking-wide"
       >
-        Donde el producto manda y Catarroja disfruta
+        Cocina de Mercado y Origen en el Corazón de Catarroja
       </span>
     </h1>
 
     <p class="text-lg md:text-xl text-white/80 max-w-2xl mx-auto font-light">
-      Cocina de mercado, brasas y el auténtico esmorzaret valenciano en un
-      ambiente que te hará sentir como en casa
+      Saborea la tradición renovada. Desde arroces melosos hasta el producto más
+      fresco de lonja.
     </p>
 
-    <div class="flex flex-col md:flex-row gap-4 justify-center pt-8">
+    <div class="flex flex-col md:flex-row gap-4 justify-center pt-4">
       <Button
         href="https://wa.me/34624283131?text=Hola!%20Me%20gustar%C3%ADa%20reservar%20una%20mesa%20en%20Taberna%20Aliaga"
         target="_blank"
