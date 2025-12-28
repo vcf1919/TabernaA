@@ -1,0 +1,100 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import { Info } from 'lucide-react';
+
+const categories = [
+  {
+    title: "Entrantes",
+    items: [
+      { name: "Ensaladilla Rusa de la Casa", description: "Con ventresca de atún y mayonesa suave", price: "9.50" },
+      { name: "Bravas Taberna Aliaga", description: "Doble cocción con nuestro alioli especial", price: "8.00" },
+      { name: "Esgarraet Valenciano", description: "Pimiento asado a leña y bacalao inglés", price: "12.00" },
+      { name: "Croquetas de Jamón Ibérico", description: "Caseras, cremosas y con tropezones (und)", price: "2.50" },
+    ]
+  },
+  {
+    title: "De la Lonja",
+    items: [
+      { name: "Ostras Valencianas", description: "Frescas del día (und)", price: "4.50" },
+      { name: "Sepia de Playa", description: "A la plancha con su mery", price: "16.00" },
+      { name: "Tellinas", description: "Salteadas con ajo y perejil", price: "14.50" },
+      { name: "Gambas al Ajillo", description: "Clásicas, picantitas y sabrosas", price: "18.00" },
+    ]
+  },
+  {
+    title: "Brasas",
+    items: [
+      { name: "Chuletón de Vaca Madurada", description: "Al peso (kg), con guarnición de patatas", price: "65.00" },
+      { name: "Entrecot de Ternera", description: "300g de ternera de pasto", price: "24.00" },
+      { name: "Rodaballo a la Brasa", description: "Pieza entera para compartir (según mercado)", price: "S/M" },
+      { name: "Pulpo a la Brasa", description: "Con parmentier de patata y pimentón", price: "22.00" },
+    ]
+  },
+  {
+    title: "Postres",
+    items: [
+      { name: "Torrija Caramelizada", description: "Con helado de leche merengada", price: "7.00" },
+      { name: "Tarta de Queso Fluida", description: "Estilo horno, cremosa", price: "7.50" },
+      { name: "Fruta de Temporada", description: "Selección de fruta fresca cortada", price: "5.00" },
+    ]
+  }
+];
+---
+
+<MainLayout title="Nuestra Carta | Taberna Aliaga" description="Descubre nuestra carta: tapas, pescados de lonja y las mejores carnes a la brasa en Catarroja.">
+  <div class="bg-primary pt-32 pb-16 px-4 md:px-8 text-center text-white">
+    <h1 class="font-playfair text-5xl md:text-6xl mb-4">Nuestra Carta</h1>
+    <p class="text-white/80 max-w-2xl mx-auto text-lg font-light">
+      Producto de temporada, respeto por la materia prima y fuego.
+    </p>
+  </div>
+
+  <div class="max-w-4xl mx-auto px-4 py-16 space-y-16">
+    
+    <!-- Daily Suggestion Note -->
+    <div class="bg-accent/10 border border-accent/20 rounded-xl p-6 flex items-start gap-4 shadow-sm">
+      <Info className="w-6 h-6 text-accent shrink-0 mt-1" />
+      <div>
+        <h3 class="font-bold text-lg text-primary mb-1">Sugerencias del Día</h3>
+        <p class="text-gray-600">
+          Nuestra cocina vive del mercado. Pregunta a nuestro equipo por los pescados frescos y platos de cuchara que hemos preparado hoy fuera de carta.
+        </p>
+      </div>
+    </div>
+
+    {categories.map((category) => (
+      <section class="space-y-8">
+        <h2 class="font-playfair text-3xl md:text-4xl text-primary border-b border-primary/10 pb-4">
+          {category.title}
+        </h2>
+        <div class="grid grid-cols-1 gap-6">
+          {category.items.map((item) => (
+            <div class="flex flex-col md:flex-row md:items-baseline justify-between gap-2 group hover:bg-white p-4 -mx-4 rounded-xl transition-colors">
+              <div class="flex-1">
+                <div class="flex items-baseline gap-2">
+                  <h3 class="text-xl font-bold text-primary group-hover:text-accent transition-colors">{item.name}</h3>
+                  <div class="flex-1 border-b border-dotted border-gray-300 mx-2 hidden md:block"></div>
+                </div>
+                <p class="text-gray-500 font-light mt-1">{item.description}</p>
+              </div>
+              <span class="text-lg font-medium text-primary whitespace-nowrap">{item.price === 'S/M' ? 'S/M' : `${item.price}€`}</span>
+            </div>
+          ))}
+        </div>
+      </section>
+    ))}
+
+    <div class="text-center pt-8 border-t border-gray-200">
+      <h2 class="font-playfair text-3xl md:text-4xl text-primary mb-6">Bodega</h2>
+      <p class="text-gray-600 mb-8">Disponemos de una cuidada selección de vinos D.O. Valencia, Rioja y Ribera del Duero.</p>
+      <a 
+        href="https://wa.me/34722447769" 
+        class="inline-flex items-center gap-2 text-accent hover:text-primary transition-colors font-medium"
+      >
+        <span>Consultar disponibilidad y reservas</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
+    </div>
+
+  </div>
+</MainLayout>

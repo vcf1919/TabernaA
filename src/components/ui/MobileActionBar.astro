@@ -1,0 +1,19 @@
+---
+import { Phone, MessageCircle } from 'lucide-react';
+---
+
+<div class="fixed bottom-0 left-0 w-full z-50 bg-white border-t border-gray-200 md:hidden grid grid-cols-2 p-2 gap-2 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)]">
+  <a href="tel:+34722447769" class="flex items-center justify-center gap-2 bg-primary text-white py-3 px-4 font-medium rounded-lg hover:bg-black transition-colors">
+    <Phone className="w-5 h-5" />
+    Llamar
+  </a>
+  <a 
+    href="https://wa.me/34722447769?text=Hola!%20Me%20gustar%C3%ADa%20reservar%20una%20mesa%20en%20Taberna%20Aliaga" 
+    target="_blank"
+    rel="noopener noreferrer"
+    class="flex items-center justify-center gap-2 bg-[#25D366] text-white py-3 px-4 font-medium rounded-lg hover:brightness-105 transition-colors"
+  >
+    <MessageCircle className="w-5 h-5" />
+    Reservar
+  </a>
+</div>

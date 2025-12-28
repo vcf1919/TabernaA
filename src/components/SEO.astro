@@ -1,0 +1,80 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  image?: string;
+}
+
+const { 
+  title, 
+  description,
+  image = '/og-image.jpg'
+} = Astro.props;
+
+const siteTitle = "Taberna Aliaga";
+const fullTitle = title === siteTitle ? title : `${title} | ${siteTitle}`;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://tabernaaliaga.com');
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "name": "Taberna Aliaga",
+  "image": [
+    "https://tabernaaliaga.com/og-image.jpg"
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "C/ Músico Filibert Rodrigo, 19",
+    "addressLocality": "Catarroja",
+    "addressRegion": "Valencia",
+    "postalCode": "46470",
+    "addressCountry": "ES"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 39.4035,
+    "longitude": -0.4036
+  },
+  "url": "https://tabernaaliaga.com",
+  "telephone": "+34722447769",
+  "servesCuisine": "Cocina de mercado, Tapas, Esmorzaret",
+  "priceRange": "$$",
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday"
+      ],
+      "opens": "09:00",
+      "closes": "23:30"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Sunday",
+      "opens": "09:00",
+      "closes": "16:00"
+    }
+  ]
+};
+---
+
+<meta charset="UTF-8" />
+<meta name="description" content={description} />
+<meta name="viewport" content="width=device-width" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="canonical" href={canonicalURL} />
+<meta name="generator" content={Astro.generator} />
+<title>{fullTitle}</title>
+
+<meta property="og:title" content={fullTitle} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={image} />
+<meta property="og:url" content={canonicalURL} />
+<meta property="og:type" content="website" />
+<meta property="twitter:card" content="summary_large_image" />
+
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />

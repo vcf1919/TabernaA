@@ -1,0 +1,35 @@
+---
+import '@fontsource/playfair-display';
+import '@fontsource/montserrat';
+import '../styles/global.css';
+
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import SEO from '../components/SEO.astro';
+import MobileActionBar from '../components/ui/MobileActionBar.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { 
+  title, 
+  description = "Taberna Aliaga - Restaurante en Catarroja donde el producto manda." 
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <SEO title={title} description={description} />
+  </head>
+  <body class="bg-base text-primary font-body antialiased selection:bg-accent/30 selection:text-primary">
+    <Navbar />
+    <main class="min-h-screen">
+      <slot />
+    </main>
+    <Footer />
+    <MobileActionBar />
+  </body>
+</html>

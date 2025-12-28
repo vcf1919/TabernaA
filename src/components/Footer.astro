@@ -1,0 +1,57 @@
+---
+import { MapPin, Phone, Clock } from 'lucide-react';
+---
+
+<footer class="bg-primary text-base py-16">
+  <div class="max-w-7xl mx-auto px-4 md:px-8 grid grid-cols-1 md:grid-cols-3 gap-12">
+    <!-- Contact Info -->
+    <div class="space-y-4">
+      <h3 class="font-playfair text-2xl font-bold text-accent">Taberna Aliaga</h3>
+      <div class="space-y-2 text-white/80">
+        <p class="flex items-start gap-3">
+          <MapPin className="w-5 h-5 text-accent mt-1" />
+          <span>Carrer Músic Filibert Rodrigo 19<br/>46470 Catarroja, Valencia</span>
+        </p>
+        <p class="flex items-center gap-3">
+          <Phone className="w-5 h-5 text-accent" />
+          <a href="tel:+34 722447769" class="hover:text-accent transition-colors">624 28 31 31</a>
+        </p>
+      </div>
+    </div>
+
+    <!-- Hours -->
+    <div class="space-y-4">
+      <h3 class="font-playfair text-xl text-white">Horario</h3>
+      <div class="space-y-2 text-white/80">
+        <div class="flex items-start gap-3">
+          <Clock className="w-5 h-5 text-accent mt-1" />
+          <div>
+            <p>Martes - Sábado</p>
+            <p class="text-sm">09:00 - 16:00 | 20:00 - 23:30</p>
+            <p class="mt-2">Domingo</p>
+            <p class="text-sm">09:00 - 16:00</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Map (Placeholder) -->
+    <!-- Map -->
+    <div class="h-48 bg-white/10 rounded-lg overflow-hidden relative">
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3080.627999813589!2d-0.4060879233857321!3d39.40523097161864!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd604e4c2c0c0c0d%3A0x0!2zMznCsDI0JzE4LjgiTiAwwrAyNCoxMy42Ilc!5e0!3m2!1ses!2ses!4v1703632000000!5m2!1ses!2ses" 
+        width="100%" 
+        height="100%" 
+        style="border:0;" 
+        allowfullscreen="" 
+        loading="lazy" 
+        referrerpolicy="no-referrer-when-downgrade"
+        class="absolute inset-0 w-full h-full grayscale hover:grayscale-0 transition-all duration-500 opacity-80 hover:opacity-100"
+      ></iframe>
+    </div>
+  </div>
+  
+  <div class="max-w-7xl mx-auto px-4 md:px-8 mt-12 pt-8 border-t border-white/10 text-center text-white/40 text-sm">
+    &copy; {new Date().getFullYear()} Taberna Aliaga. Todos los derechos reservados.
+  </div>
+</footer>

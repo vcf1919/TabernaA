@@ -1,0 +1,44 @@
+---
+import Button from '../ui/Button.astro';
+---
+
+<section class="py-24 bg-gray-100 relative overflow-hidden">
+  <!-- Subtle pattern or texture could go here -->
+  <div class="max-w-7xl mx-auto px-4 md:px-8 grid md:grid-cols-2 gap-12 items-center">
+    <div class="order-2 md:order-1 space-y-6">
+      <span class="text-accent font-bold tracking-wider uppercase text-sm">Tradición Valenciana</span>
+      <h2 class="font-playfair text-4xl md:text-5xl text-primary leading-tight">
+        La Cultura del <br/>Esmorzaret
+      </h2>
+      <div class="space-y-4 text-gray-600 text-lg leading-relaxed">
+        <p>
+          En Taberna Aliaga respetamos la liturgia: de lunes a sábado, de <strong>09:00 a 12:00</strong>.
+        </p>
+        <p>
+          No es solo un bocadillo; es el <em>gasto</em> (cacaus del collaret i tramussos), la cerveza helada o el vino con gaseosa, y el "cremaet" final.
+        </p>
+        <p>
+          Ven a probar nuestros bocadillos estrella con producto fresco de mercado.
+        </p>
+      </div>
+      <div class="pt-4">
+        <Button href="/esmorzaret" variant="primary">
+          Ver Carta de Almuerzos
+        </Button>
+      </div>
+    </div>
+    
+    <div class="order-1 md:order-2 relative">
+      <div class="aspect-square md:aspect-[4/3] rounded-2xl overflow-hidden shadow-xl">
+        <img 
+          src="/images/esmorzaret.png" 
+          alt="Esmorzaret Valenciano con bocadillo y cacaus" 
+          class="w-full h-full object-cover"
+          loading="lazy"
+        />
+      </div>
+      <!-- Decorative element -->
+      <div class="absolute -bottom-6 -left-6 w-32 h-32 bg-accent/20 rounded-full blur-2xl -z-10"></div>
+    </div>
+  </div>
+</section>
