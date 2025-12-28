@@ -1,42 +1,54 @@
 ---
-import Button from '../ui/Button.astro';
+import Button from "../ui/Button.astro";
 ---
 
-<section class="relative h-[90vh] flex items-center justify-center overflow-hidden bg-primary text-white">
+<section
+  class="relative h-[90vh] flex items-center justify-center overflow-hidden bg-primary text-white"
+>
   <!-- Background Image Placeholder - In real project, use real optimized image -->
   <div class="absolute inset-0 z-0">
     <div class="absolute inset-0 bg-black/60 z-10"></div>
-    <img 
-      src="/images/hero-bg.png" 
-      alt="Interior cálido de Taberna Aliaga" 
+    <img
+      src="/images/hero-bg.png"
+      alt="Interior cálido de Taberna Aliaga"
       class="w-full h-full object-cover opacity-90"
-      loading="eager" 
+      loading="eager"
     />
   </div>
 
-  <div class="relative z-20 text-center max-w-4xl px-4 space-y-8 animate-fade-in-up">
+  <div
+    class="relative z-20 text-center max-w-4xl px-4 space-y-8 animate-fade-in-up"
+  >
     <h1 class="font-playfair text-5xl md:text-7xl lg:text-8xl leading-tight">
       Taberna Aliaga
-      <span class="block text-2xl md:text-4xl mt-4 font-normal text-white/90 font-montserrat tracking-wide">
+      <span
+        class="block text-2xl md:text-4xl mt-4 font-normal text-white/90 font-montserrat tracking-wide"
+      >
         Donde el producto manda y Catarroja disfruta
       </span>
     </h1>
-    
+
     <p class="text-lg md:text-xl text-white/80 max-w-2xl mx-auto font-light">
-      Cocina de mercado, brasas y el auténtico esmorzaret valenciano en un ambiente que te hará sentir como en casa
+      Cocina de mercado, brasas y el auténtico esmorzaret valenciano en un
+      ambiente que te hará sentir como en casa
     </p>
-    
+
     <div class="flex flex-col md:flex-row gap-4 justify-center pt-8">
-      <Button 
-        href="https://wa.me/34722447769?text=Hola!%20Me%20gustar%C3%ADa%20reservar%20una%20mesa%20en%20Taberna%20Aliaga"
+      <Button
+        href="https://wa.me/34624283131?text=Hola!%20Me%20gustar%C3%ADa%20reservar%20una%20mesa%20en%20Taberna%20Aliaga"
         target="_blank"
-        rel="noopener noreferrer" 
-        variant="accent" 
+        rel="noopener noreferrer"
+        variant="accent"
         size="lg"
       >
         Reservar Mesa
       </Button>
-      <Button href="/carta" variant="outline" size="lg" class="border-white text-white hover:bg-white hover:text-primary">
+      <Button
+        href="/carta"
+        variant="outline"
+        size="lg"
+        class="border-white text-white hover:bg-white hover:text-primary"
+      >
         Ver Carta
       </Button>
     </div>

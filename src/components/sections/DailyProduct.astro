@@ -1,0 +1,51 @@
+---
+import { INFO } from "../../data/info";
+---
+
+<section class="bg-primary text-base py-12">
+  <div class="container mx-auto px-4 text-center">
+    <span class="text-accent uppercase tracking-widest text-sm font-semibold"
+      >Fresco de la Lonja</span
+    >
+    <h2 class="text-3xl md:text-5xl font-playfair mt-2 mb-6">
+      Pescado del Día
+    </h2>
+
+    <div class="relative inline-block group cursor-pointer">
+      <div
+        class="absolute -inset-1 bg-gradient-to-r from-accent to-white rounded-lg blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200"
+      >
+      </div>
+      <div
+        class="relative bg-black ring-1 ring-gray-900 rounded-lg leading-none flex items-top justify-start space-x-6"
+      >
+        <div
+          class="bg-white/10 backdrop-blur-md border border-white/20 p-8 rounded-lg max-w-2xl mx-auto"
+        >
+          <p class="text-xl md:text-2xl font-playfair italic mb-4">
+            "Hoy recomendamos:"
+          </p>
+          <h3 class="text-4xl md:text-6xl font-bold text-accent mb-4">
+            Rodaballo Salvaje
+          </h3>
+          <p class="text-lg md:text-xl font-light opacity-90">
+            Piezas de 2-3kg, perfectas para compartir. Preparado al horno con
+            nuestro refrito tradicional de ajos.
+          </p>
+          <div class="mt-6 flex justify-center gap-4">
+            <a
+              href={`https://wa.me/${INFO.phones.whatsapp.replace(/\s+/g, "")}`}
+              target="_blank"
+              class="px-6 py-3 bg-accent text-primary font-bold rounded-full hover:bg-white transition-colors"
+            >
+              Reservar Plato
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="mt-8 text-sm opacity-60 font-serif italic">
+      * Disponibilidad limitada según mercado diario.
+    </p>
+  </div>
+</section>

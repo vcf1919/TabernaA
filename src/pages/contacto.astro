@@ -1,10 +1,14 @@
 ---
-import MainLayout from '../layouts/MainLayout.astro';
-import Button from '../components/ui/Button.astro';
-import { MapPin, Phone, Clock, Mail } from 'lucide-react';
+import MainLayout from "../layouts/MainLayout.astro";
+import Button from "../components/ui/Button.astro";
+import { MapPin, Phone, Clock, Mail } from "lucide-react";
+import { INFO } from "../data/info";
 ---
 
-<MainLayout title="Contacto | Taberna Aliaga" description="Visítanos en Catarroja. Reservas, horario y ubicación de Taberna Aliaga.">
+<MainLayout
+  title="Contacto | Taberna Aliaga"
+  description="Visítanos en Catarroja. Reservas, horario y ubicación de Taberna Aliaga."
+>
   <div class="bg-primary pt-32 pb-16 px-4 md:px-8 text-center text-white">
     <h1 class="font-playfair text-5xl md:text-6xl mb-4">Contacto</h1>
     <p class="text-white/80 max-w-2xl mx-auto text-lg font-light">
@@ -14,41 +18,66 @@ import { MapPin, Phone, Clock, Mail } from 'lucide-react';
 
   <div class="max-w-7xl mx-auto px-4 md:px-8 py-16">
     <div class="grid md:grid-cols-2 gap-12 lg:gap-24">
-      
       <!-- Info Column -->
       <div class="space-y-12">
-        
         <!-- Contact Details -->
         <div class="space-y-6">
           <h2 class="font-playfair text-3xl text-primary">Información</h2>
           <div class="space-y-4">
             <div class="flex items-start gap-4">
-              <div class="w-10 h-10 bg-accent/10 rounded-full flex items-center justify-center text-accent shrink-0">
+              <div
+                class="w-10 h-10 bg-accent/10 rounded-full flex items-center justify-center text-accent shrink-0"
+              >
                 <MapPin className="w-5 h-5" />
               </div>
               <div>
                 <h3 class="font-bold text-primary">Dirección</h3>
-                <p class="text-gray-600">Carrer Músic Filibert Rodrigo 19<br/>46470 Catarroja, Valencia</p>
+                <p class="text-gray-600">
+                  {INFO.address.street}<br />{INFO.address.postalCode}
+                  {INFO.address.city}, {INFO.address.region}
+                </p>
               </div>
             </div>
 
             <div class="flex items-start gap-4">
-              <div class="w-10 h-10 bg-accent/10 rounded-full flex items-center justify-center text-accent shrink-0">
+              <div
+                class="w-10 h-10 bg-accent/10 rounded-full flex items-center justify-center text-accent shrink-0"
+              >
                 <Phone className="w-5 h-5" />
               </div>
               <div>
-                <h3 class="font-bold text-primary">Teléfono</h3>
-                <a href="tel:+34722447769" class="text-gray-600 hover:text-accent transition-colors">624 28 31 31</a>
+                <h3 class="font-bold text-primary">Teléfonos</h3>
+                <div class="flex flex-col gap-1">
+                  <a
+                    href={`https://wa.me/${INFO.phones.whatsapp.replace(/\s+/g, "").replace("+", "")}`}
+                    class="text-gray-600 hover:text-accent transition-colors"
+                  >
+                    WhatsApp: {INFO.phones.whatsapp}
+                  </a>
+                  <a
+                    href={`tel:${INFO.phones.landline.replace(/\s+/g, "")}`}
+                    class="text-gray-600 hover:text-accent transition-colors"
+                  >
+                    Fijo: {INFO.phones.landline}
+                  </a>
+                </div>
               </div>
             </div>
 
             <div class="flex items-start gap-4">
-              <div class="w-10 h-10 bg-accent/10 rounded-full flex items-center justify-center text-accent shrink-0">
+              <div
+                class="w-10 h-10 bg-accent/10 rounded-full flex items-center justify-center text-accent shrink-0"
+              >
                 <Mail className="w-5 h-5" />
               </div>
               <div>
                 <h3 class="font-bold text-primary">Email</h3>
-                <a href="mailto:hola@tabernaaliaga.com" class="text-gray-600 hover:text-accent transition-colors">hola@tabernaaliaga.com</a>
+                <a
+                  href={`mailto:${INFO.email}`}
+                  class="text-gray-600 hover:text-accent transition-colors"
+                >
+                  {INFO.email}
+                </a>
               </div>
             </div>
           </div>
@@ -58,46 +87,48 @@ import { MapPin, Phone, Clock, Mail } from 'lucide-react';
         <div class="space-y-6">
           <h2 class="font-playfair text-3xl text-primary">Horario</h2>
           <div class="bg-gray-50 p-6 rounded-xl border border-gray-100">
-            <div class="grid grid-cols-2 gap-4 text-sm md:text-base">
-              <div class="font-bold text-primary">Martes - Sábado</div>
-              <div class="text-gray-600">09:00 - 16:00 <br/> 20:00 - 23:30</div>
-              
-              <div class="font-bold text-primary pt-4 border-t border-gray-200">Domingo</div>
-              <div class="text-gray-600 pt-4 border-t border-gray-200">09:00 - 16:00</div>
-              
-              <div class="font-bold text-primary pt-4 border-t border-gray-200">Lunes</div>
-              <div class="text-gray-600 pt-4 border-t border-gray-200">Cerrado por descanso</div>
+            <div
+              class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm md:text-base"
+            >
+              <div>
+                <div class="font-bold text-primary">Comidas</div>
+                <div class="text-gray-600">{INFO.hours.lunch}</div>
+              </div>
+              <div>
+                <div class="font-bold text-primary">Cenas</div>
+                <div class="text-gray-600">{INFO.hours.dinner}</div>
+              </div>
             </div>
           </div>
         </div>
 
         <!-- CTA -->
         <div>
-          <Button 
-            href="https://wa.me/34722447769?text=Hola!%20Me%20gustar%C3%ADa%20reservar%20una%20mesa" 
+          <Button
+            href={`https://wa.me/${INFO.phones.whatsapp.replace(/\s+/g, "").replace("+", "")}?text=Hola!%20Me%20gustar%C3%ADa%20reservar%20una%20mesa`}
             target="_blank"
             rel="noopener noreferrer"
-            variant="accent" 
+            variant="accent"
             class="w-full md:w-auto"
           >
             Contactar por WhatsApp
           </Button>
         </div>
-
       </div>
 
       <!-- Map Column -->
-      <div class="h-[400px] md:h-auto bg-gray-200 rounded-2xl overflow-hidden relative">
-        <!-- Placeholder for map - In production use Google Maps Embed API -->
-        <iframe 
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3080.627999813589!2d-0.4060879233857321!3d39.40523097161864!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd604e4c2c0c0c0d%3A0x0!2zMznCsDI0JzE4LjgiTiAwwrAyNCoxMy42Ilc!5e0!3m2!1ses!2ses!4v1703632000000!5m2!1ses!2ses" 
-          width="100%" 
-          height="100%" 
-          style="border:0;" 
-          allowfullscreen="" 
-          loading="lazy" 
+      <div
+        class="h-[400px] md:h-auto bg-gray-200 rounded-2xl overflow-hidden relative"
+      >
+        <iframe
+          src="https://maps.google.com/maps?q=39.40716,-0.40517&hl=es&z=16&output=embed"
+          width="100%"
+          height="100%"
+          style="border:0;"
+          allowfullscreen=""
+          loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"
-          class="absolute inset-0 w-full h-full grayscale hover:grayscale-0 transition-all duration-500"
+          class="absolute inset-0 w-full h-full grayscale hover:grayscale-0 transition-all duration-500 hover:opacity-100 opacity-90"
         ></iframe>
       </div>
     </div>

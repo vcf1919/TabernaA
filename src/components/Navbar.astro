@@ -1,23 +1,39 @@
 ---
-import Button from './ui/Button.astro';
+import Button from "./ui/Button.astro";
+import { INFO } from "../data/info";
 ---
 
-<header class="sticky top-0 z-50 w-full bg-base/95 backdrop-blur-sm border-b border-primary/10">
-  <div class="max-w-7xl mx-auto px-4 md:px-8 h-20 flex items-center justify-between">
-    <a href="/" class="text-2xl font-playfair font-bold text-primary tracking-tighter">
+<header
+  class="sticky top-0 z-50 w-full bg-base/95 backdrop-blur-sm border-b border-primary/10"
+>
+  <div
+    class="max-w-7xl mx-auto px-4 md:px-8 h-20 flex items-center justify-between"
+  >
+    <a
+      href="/"
+      class="text-2xl font-playfair font-bold text-primary tracking-tighter"
+    >
       Taberna Aliaga
     </a>
 
     <nav class="hidden md:flex items-center gap-8">
-      <a href="/carta" class="text-primary hover:text-accent transition-colors">Carta</a>
-      <a href="/esmorzaret" class="text-primary hover:text-accent transition-colors">Esmorzaret</a>
-      <a href="/contacto" class="text-primary hover:text-accent transition-colors">Contacto</a>
-      
-      <Button 
-        href="https://wa.me/34722447769?text=Hola!%20Me%20gustar%C3%ADa%20reservar%20una%20mesa%20en%20Taberna%20Aliaga"
+      <a
+        href="/nosotros"
+        class="text-primary hover:text-accent transition-colors">Nosotros</a
+      >
+      <a href="/carta" class="text-primary hover:text-accent transition-colors"
+        >Carta</a
+      >
+      <a
+        href="/contacto"
+        class="text-primary hover:text-accent transition-colors">Contacto</a
+      >
+
+      <Button
+        href={`https://wa.me/${INFO.phones.whatsapp.replace(/\s+/g, "").replace("+", "")}?text=Hola!%20Me%20gustar%C3%ADa%20reservar%20una%20mesa%20en%20Taberna%20Aliaga`}
         target="_blank"
-        rel="noopener noreferrer" 
-        variant="accent" 
+        rel="noopener noreferrer"
+        variant="accent"
         size="sm"
       >
         Reservar

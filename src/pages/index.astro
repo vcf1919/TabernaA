@@ -1,12 +1,16 @@
 ---
-import MainLayout from '../layouts/MainLayout.astro';
-import Hero from '../components/sections/Hero.astro';
-import BentoGrid from '../components/sections/BentoGrid.astro';
-import Esmorzaret from '../components/sections/Esmorzaret.astro';
+import MainLayout from "../layouts/MainLayout.astro";
+import Hero from "../components/sections/Hero.astro";
+import DailyProduct from "../components/sections/DailyProduct.astro";
+import ChefRecipe from "../components/sections/ChefRecipe.astro";
+import TastingAgenda from "../components/sections/TastingAgenda.astro";
+import BentoGrid from "../components/sections/BentoGrid.astro";
 ---
 
-<MainLayout title="Taberna Aliaga">
+<MainLayout title="Taberna Aliaga - El mejor producto de la lonja en Catarroja">
   <Hero />
+  <DailyProduct />
   <BentoGrid />
-  <Esmorzaret />
+  <ChefRecipe />
+  <TastingAgenda />
 </MainLayout>

@@ -1,9 +1,10 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #1A1A1A;
-  --color-accent: #C4A484;
-  --color-base: #F9F9F9;
+  --color-primary: #1E3932; /* Forest Green */
+  --color-secondary: #8B5A2B; /* Wood */
+  --color-accent: #D4AF37; /* Gold */
+  --color-base: #F5F5F0; /* Off-white */
 
   --font-playfair: 'Playfair Display', serif;
   --font-montserrat: 'Montserrat', sans-serif;
