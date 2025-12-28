@@ -112,8 +112,21 @@ import { INFO } from "../data/info";
           <div class="space-y-6">
             {
               INFO.menuCategories.tapas.items.map((item) => (
-                <div>
-                  <h3 class="font-bold text-lg text-primary">{item.name}</h3>
+                <div class="group/item relative">
+                  <h3 class="font-bold text-lg text-primary flex items-center gap-2 cursor-pointer w-fit">
+                    {item.name}
+                    {item.name.includes("Alcachofas") && (
+                      <span class="hidden md:inline-block md:opacity-0 md:group-hover/item:opacity-100 transition-opacity bg-accent text-primary text-[10px] px-2 py-0.5 rounded-full uppercase tracking-wider absolute left-full ml-2 whitespace-nowrap shadow-lg">
+                        Receta Secreta 1995
+                      </span>
+                    )}
+                  </h3>
+                  {/* Mobile Tooltip Indicator */}
+                  {item.name.includes("Alcachofas") && (
+                    <div class="md:hidden text-accent text-xs italic mt-1">
+                      Receta Secreta 1995
+                    </div>
+                  )}
                   <p class="text-gray-600 text-sm italic">{item.description}</p>
                 </div>
               ))
